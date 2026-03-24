@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPONE Ad Scripts: Prepared by CL Marketing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #05071a;
+      --bg2: #0b0e28;
+      --bg3: #111535;
+      --gold: #d4a843;
+      --gold-dim: rgba(212,168,67,0.1);
+      --gold-border: rgba(212,168,67,0.22);
+      --blue: #6c8aff;
+      --blue-dim: rgba(108,138,255,0.1);
+      --blue-border: rgba(108,138,255,0.22);
+      --green: #34d399;
+      --green-dim: rgba(52,211,153,0.1);
+      --green-border: rgba(52,211,153,0.2);
+      --white: #f0f2ff;
+      --grey: #8899bb;
+      --grey-dark: #4a5580;
+      --border: rgba(255,255,255,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 48px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .topbar-brand { font-weight: 700; color: var(--white); letter-spacing: -0.3px; }
+    .topbar-brand span { color: var(--gold); }
+    .topbar-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--grey);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .topbar-back:hover { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 64px 24px 48px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-border);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .badge-dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--grey);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    /* CONTEXT BAR */
+    .context-bar {
+      max-width: 800px;
+      margin: 0 auto 48px;
+      padding: 0 24px;
+    }
+    .context-inner {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 28px;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .context-item { font-size: 13px; color: var(--grey); }
+    .context-item strong { color: var(--white); display: block; font-size: 14px; margin-bottom: 2px; }
+
+    /* SCRIPTS */
+    .scripts-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .script-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .script-header {
+      padding: 24px 28px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .script-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .meta-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .meta-tag.framework { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+    .meta-tag.length { background: var(--blue-dim); color: var(--blue); border: 1px solid var(--blue-border); }
+    .meta-tag.hook { background: rgba(255,255,255,0.04); color: var(--grey); border: 1px solid var(--border); }
+
+    .script-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+    .script-body {
+      padding: 20px 28px 28px;
+    }
+
+    .cue {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 20px 0 8px;
+    }
+    .cue:first-child { margin-top: 0; }
+
+    .script-text {
+      font-size: 15px;
+      color: var(--white);
+      line-height: 1.75;
+      white-space: pre-wrap;
+    }
+
+    .script-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 20px 0;
+    }
+
+    /* PRODUCTION NOTES */
+    .notes-section {
+      max-width: 800px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .notes-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .notes-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .note-block h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .note-block p, .note-block li {
+      font-size: 13px;
+      color: var(--grey);
+      line-height: 1.65;
+    }
+    .note-block ul { padding-left: 16px; }
+    .note-block li { margin-bottom: 4px; }
+
+    /* BACK CTA */
+    .back-cta {
+      max-width: 800px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--grey);
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--white); }
+
+    /* FOOTER */
+    footer {
+      padding: 28px 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--grey-dark);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 700px) {
+      .topbar { padding: 12px 20px; }
+      .notes-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-brand">CL <span>Marketing</span></div>
+    <a href="index.html" class="topbar-back">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Overview
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero reveal">
+    <div class="hero-badge"><span class="badge-dot"></span> Paid Acquisition</div>
+    <h1>5 Ad Scripts Built<br>for <em>UPONE.</em></h1>
+    <p class="hero-sub">
+      Written in Kian's voice. Ready to film. These are the ads that put UPONE in front of the right men at scale and move them to your VSL funnel.
+    </p>
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar reveal">
+    <div class="context-inner">
+      <div class="context-item"><strong>Audience</strong>Men training without results</div>
+      <div class="context-item"><strong>Funnel</strong>VSL landing page</div>
+      <div class="context-item"><strong>Platform</strong>Meta (Facebook + Instagram)</div>
+      <div class="context-item"><strong>Format</strong>Vertical video, 9:16</div>
+      <div class="context-item"><strong>Scripts</strong>5 across 4 frameworks</div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <div class="scripts-wrap">
+
+    <!-- SCRIPT 1 -->
+    <div class="script-card reveal">
+      <div class="script-header">
+        <div>
+          <div class="script-meta">
+            <span class="meta-tag framework">Talking Head + B-Roll</span>
+            <span class="meta-tag length">45 seconds</span>
+            <span class="meta-tag hook">Pain-Point Direct</span>
+          </div>
+          <div class="script-title">The Consistency Trap</div>
+        </div>
+      </div>
+      <div class="script-body">
+        <span class="cue">Hook (0:00 to 0:05)</span>
+        <div class="script-text">If you've been training consistently for months and still don't look like it, that's not a discipline problem.</div>
+        <div class="script-divider"></div>
+        <span class="cue">Body (0:05 to 0:35)</span>
+        <div class="script-text">Most guys are doing the right things in the wrong order. They're training hard, watching what they eat, staying consistent. And they're still stuck.
+
+The issue is usually the plan itself.
+
+Generic programming does not account for how your body responds. It does not adjust when you plateau. It does not tell you why your progress has stalled.
+
+That's what UPONE is built around. A training and nutrition system that's built specifically for you, with weekly check-ins, form reviews, and a coaching layer that actually adjusts when you stop progressing.
+
+We've had clients lose 20 pounds of fat in their first two months. One client saw visible changes in his first three weeks.</div>
+        <div class="script-divider"></div>
+        <span class="cue">CTA (0:35 to 0:45)</span>
+        <div class="script-text">If you want to see how the system works, click the link below. It's a free page. No pitch, just the method explained.</div>
+      </div>
+    </div>
+
+    <!-- SCRIPT 2 -->
+    <div class="script-card reveal">
+      <div class="script-header">
+        <div>
+          <div class="script-meta">
+            <span class="meta-tag framework">Talking Head (Contrarian)</span>
+            <span class="meta-tag length">30 seconds</span>
+            <span class="meta-tag hook">Contrarian / Confession</span>
+          </div>
+          <div class="script-title">The 526 Video Problem</div>
+        </div>
+      </div>
+      <div class="script-body">
+        <span class="cue">Hook (0:00 to 0:05)</span>
+        <div class="script-text">I've uploaded over 500 YouTube videos about fat loss and training. And I'll be honest with you: most of it won't get you results on its own.</div>
+        <div class="script-divider"></div>
+        <span class="cue">Body (0:05 to 0:22)</span>
+        <div class="script-text">Because information is not the problem. You already know you need to train harder, eat better, and sleep more.
+
+What actually moves the needle is accountability, a plan built around your body specifically, and a coach who catches you before you fall off.
+
+That's the difference between someone who reads about fat loss for years and someone who actually loses the weight.</div>
+        <div class="script-divider"></div>
+        <span class="cue">CTA (0:22 to 0:30)</span>
+        <div class="script-text">Click the link below to see exactly how UPONE coaching works. I'll walk you through the full method.</div>
+      </div>
+    </div>
+
+    <!-- SCRIPT 3 -->
+    <div class="script-card reveal">
+      <div class="script-header">
+        <div>
+          <div class="script-meta">
+            <span class="meta-tag framework">Case Study Snapshot</span>
+            <span class="meta-tag length">20 seconds</span>
+            <span class="meta-tag hook">Bold Claim / Result</span>
+          </div>
+          <div class="script-title">3 Weeks</div>
+        </div>
+      </div>
+      <div class="script-body">
+        <span class="cue">Hook (0:00 to 0:05)</span>
+        <div class="script-text">One of our clients saw visible body shape changes in his first three weeks of UPONE.</div>
+        <div class="script-divider"></div>
+        <span class="cue">Body (0:05 to 0:14)</span>
+        <div class="script-text">Not because we gave him an extreme diet. Because we gave him the right plan for his body, checked in with him every week, and adjusted when things stopped working.</div>
+        <div class="script-divider"></div>
+        <span class="cue">CTA (0:14 to 0:20)</span>
+        <div class="script-text">Click below to see how the system works. Takes two minutes to read through.</div>
+      </div>
+    </div>
+
+    <!-- SCRIPT 4 -->
+    <div class="script-card reveal">
+      <div class="script-header">
+        <div>
+          <div class="script-meta">
+            <span class="meta-tag framework">Objection-First</span>
+            <span class="meta-tag length">45 seconds</span>
+            <span class="meta-tag hook">Objection-First</span>
+          </div>
+          <div class="script-title">The Plan That Leaves You Alone</div>
+        </div>
+      </div>
+      <div class="script-body">
+        <span class="cue">Hook (0:00 to 0:06)</span>
+        <div class="script-text">Most fitness programs give you a plan and then leave you completely alone with it.</div>
+        <div class="script-divider"></div>
+        <span class="cue">Body (0:06 to 0:35)</span>
+        <div class="script-text">That works fine if you already know exactly how your body responds to training, how to adjust your nutrition when progress stalls, and how to stay consistent without someone holding you accountable.
+
+Most guys don't. And that's why most guys don't get results.
+
+UPONE is different in one specific way: we don't hand you a plan and disappear. You get weekly check-ins, mid-week check-ins, form reviews, and direct access to your coach. When something stops working, we fix it.
+
+Our clients on the program have gone from stuck to losing 20 pounds in two months. Not because the plan was harder. Because the system was tighter.</div>
+        <div class="script-divider"></div>
+        <span class="cue">CTA (0:35 to 0:45)</span>
+        <div class="script-text">If that sounds like what you've been missing, click the link below. I'll explain the full method on the next page.</div>
+      </div>
+    </div>
+
+    <!-- SCRIPT 5 -->
+    <div class="script-card reveal">
+      <div class="script-header">
+        <div>
+          <div class="script-meta">
+            <span class="meta-tag framework">Q&amp;A Style</span>
+            <span class="meta-tag length">40 seconds</span>
+            <span class="meta-tag hook">Qualifying / Circumstance</span>
+          </div>
+          <div class="script-title">Who This Is For</div>
+        </div>
+      </div>
+      <div class="script-body">
+        <span class="cue">Hook (0:00 to 0:07)</span>
+        <div class="script-text">If you're a guy who trains but hasn't seen the results you expected, this is specifically for you.</div>
+        <div class="script-divider"></div>
+        <span class="cue">Body (0:07 to 0:30)</span>
+        <div class="script-text">A lot of people ask me what makes UPONE different from just following a program online.
+
+The answer is the coaching layer. You get a training plan and a meal plan built for your body. But more importantly, you get check-ins every week, someone reviewing your form, and a coach who adjusts your plan when you plateau.
+
+That's not something a programme can do. That's something a coach does.
+
+We coach men remotely across New Zealand and Australia. The system runs through the UPONE app, so everything is in one place.</div>
+        <div class="script-divider"></div>
+        <span class="cue">CTA (0:30 to 0:40)</span>
+        <div class="script-text">Click the link below to see how the coaching system works. The full breakdown is on the next page.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PRODUCTION NOTES -->
+  <div class="notes-section reveal">
+    <div class="notes-card">
+      <div class="notes-title">Production Notes</div>
+      <div class="notes-grid">
+        <div class="note-block">
+          <h4>Filming</h4>
+          <ul>
+            <li>Vertical format, 9:16</li>
+            <li>Natural gym or home gym setting</li>
+            <li>Talk to camera directly</li>
+            <li>Know the beats, improvise the words</li>
+          </ul>
+        </div>
+        <div class="note-block">
+          <h4>Pacing</h4>
+          <ul>
+            <li>Scripts 1 and 4: primary long-form, film first</li>
+            <li>Scripts 2 and 3: short-form, film as B-roll coverage</li>
+            <li>Script 5: Q&amp;A style, someone asks opener off-camera</li>
+          </ul>
+        </div>
+        <div class="note-block">
+          <h4>Testing Order</h4>
+          <ul>
+            <li>Launch scripts 3 and 2 first (shortest, cheapest to test)</li>
+            <li>Promote the best-performing hook into the longer version</li>
+            <li>Script 5 runs as warm audience follow-up once data exists</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACK LINK -->
+  <div class="back-cta">
+    <a href="index.html" class="back-link">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to the full package overview
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>Prepared specifically for Kian Deehan &amp; UPONE Coaching &nbsp;&middot;&nbsp; March 24, 2026</div>
+    <div>CL Marketing &nbsp;&middot;&nbsp; Lucino Cioppa</div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.06 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>

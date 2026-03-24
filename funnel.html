@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPONE Coaching: Transform Your Physique in 90 Days</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #06080e;
+      --bg2: #0d1118;
+      --bg3: #111827;
+      --green: #22c55e;
+      --green-dim: rgba(34,197,94,0.12);
+      --green-border: rgba(34,197,94,0.25);
+      --white: #f8fafc;
+      --grey: #94a3b8;
+      --grey-dark: #475569;
+      --border: rgba(255,255,255,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(6,8,14,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--green); }
+    .nav-cta {
+      background: var(--green);
+      color: #06080e;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 100px 24px 80px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-dim);
+      border: 1px solid var(--green-border);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow span { width: 6px; height: 6px; background: var(--green); border-radius: 50%; display: inline-block; }
+    h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--grey);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: #06080e;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 16px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .hero-guarantee {
+      font-size: 13px;
+      color: var(--grey-dark);
+      margin-top: 14px;
+    }
+    .hero-guarantee strong { color: var(--grey); }
+
+    /* VSL */
+    .vsl-section {
+      max-width: 820px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .vsl-wrapper {
+      position: relative;
+      background: var(--bg2);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .vsl-wrapper:hover { border-color: var(--green-border); }
+    .vsl-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0d1118 0%, #06080e 100%);
+    }
+    .vsl-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .play-btn {
+      width: 72px;
+      height: 72px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      transition: transform 0.2s;
+    }
+    .vsl-wrapper:hover .play-btn { transform: scale(1.08); }
+    .play-btn svg { margin-left: 4px; }
+    .vsl-label { font-size: 15px; color: var(--grey); font-weight: 500; }
+    .vsl-label strong { color: var(--white); display: block; font-size: 18px; margin-bottom: 4px; }
+
+    /* DIVIDER */
+    .divider {
+      width: 100%;
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* PROOF BAR */
+    .proof-bar {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .proof-item {
+      text-align: center;
+    }
+    .proof-num {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -1px;
+      display: block;
+    }
+    .proof-label {
+      font-size: 13px;
+      color: var(--grey);
+      margin-top: 2px;
+    }
+    .proof-sep {
+      width: 1px;
+      height: 40px;
+      background: var(--border);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 24px;
+    }
+    .section-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--grey);
+      max-width: 600px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    /* METHOD STEPS */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .method-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      transition: border-color 0.2s;
+    }
+    .method-card:hover { border-color: var(--green-border); }
+    .method-step {
+      width: 36px;
+      height: 36px;
+      background: var(--green-dim);
+      border: 1px solid var(--green-border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+    .method-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+    .method-card p {
+      font-size: 15px;
+      color: var(--grey);
+      line-height: 1.65;
+    }
+
+    /* RESULTS */
+    .results-section { background: var(--bg2); }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .review-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+    }
+    .stars { color: #fbbf24; font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+    .review-text {
+      font-size: 15px;
+      color: var(--grey);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .reviewer-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green-dim);
+      border: 1px solid var(--green-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .reviewer-name { font-size: 14px; font-weight: 600; }
+    .reviewer-source { font-size: 12px; color: var(--grey-dark); }
+
+    /* INCLUDES */
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .include-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .check-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--green-dim);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .check-icon svg { color: var(--green); }
+    .include-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .include-desc { font-size: 13px; color: var(--grey); line-height: 1.5; }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, #0a1a12 0%, #06080e 100%);
+      border-top: 1px solid var(--border);
+    }
+    .cta-box {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .cta-box h2 { margin-bottom: 12px; }
+    .cta-box p { color: var(--grey); margin-bottom: 36px; font-size: 17px; }
+    .cta-note {
+      font-size: 13px;
+      color: var(--grey-dark);
+      margin-top: 16px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--grey-dark);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .proof-sep { display: none; }
+      .proof-bar { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">UP<span>ONE</span></div>
+    <a href="#apply" class="nav-cta">Apply Now</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow"><span></span> Online Coaching for Men</div>
+    <h1>Build the Physique You've Been<br><em>Training For</em></h1>
+    <p class="hero-sub">
+      UPONE gives you a tailored training plan, a tailored nutrition plan, and a coach who checks in every single week. Not a generic programme. A system built around you.
+    </p>
+    <div class="hero-ctas">
+      <a href="#apply" class="btn-primary">Apply for Coaching</a>
+    </div>
+    <p class="hero-guarantee">
+      <strong>90-day programme.</strong> Real results or we keep working until you get them.
+    </p>
+  </div>
+
+  <!-- VSL -->
+  <div class="vsl-section">
+    <div class="vsl-wrapper">
+      <div class="vsl-bg"></div>
+      <div class="vsl-content">
+        <div class="play-btn">
+          <svg width="24" height="24" fill="#06080e" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="vsl-label">
+          <strong>Watch: How UPONE Works</strong>
+          7 minutes. Kian walks through the exact system.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- PROOF BAR -->
+  <div class="proof-bar">
+    <div class="proof-item">
+      <span class="proof-num">20 lbs</span>
+      <div class="proof-label">Fat lost in 2 months</div>
+    </div>
+    <div class="proof-sep"></div>
+    <div class="proof-item">
+      <span class="proof-num">3 weeks</span>
+      <div class="proof-label">Average time to visible change</div>
+    </div>
+    <div class="proof-sep"></div>
+    <div class="proof-item">
+      <span class="proof-num">5★</span>
+      <div class="proof-label">Trustpilot rating</div>
+    </div>
+    <div class="proof-sep"></div>
+    <div class="proof-item">
+      <span class="proof-num">NASM</span>
+      <div class="proof-label">Certified coaching</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- METHOD -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">The UPONE Method</div>
+      <h2>Three things most programmes miss.<br>We do all three.</h2>
+      <p class="section-sub">
+        Most fitness programmes give you a plan and leave you alone with it. UPONE combines structure, accountability, and personalisation: the three things that actually drive results.
+      </p>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-step">01</div>
+          <h3>Built Around You</h3>
+          <p>Tailored training and nutrition plans created for your body, your schedule, and your goals. Not a template. Not a default macro split. Yours.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-step">02</div>
+          <h3>Weekly Coach Accountability</h3>
+          <p>Weekly and mid-week check-ins with your coach. Form reviews. Real feedback. The kind of support that makes you actually show up when you don't feel like it.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-step">03</div>
+          <h3>Daily Habit Tracking</h3>
+          <p>The UPONE app tracks your habits daily, not just your workouts. Consistency drives results. We give you the system that builds it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results-section">
+    <div class="section-inner">
+      <div class="section-label">Client Results</div>
+      <h2>Real people. Real outcomes.</h2>
+      <p class="section-sub">From Trustpilot. Unedited.</p>
+      <div class="results-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"I'm only 2 months into my 6-month program, and the results have already been transformational. I've lost 20 lbs of fat in 2 months and am increasingly muscular and fit. The best investment you will ever make in yourself."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">A</div>
+            <div>
+              <div class="reviewer-name">Anonymous</div>
+              <div class="reviewer-source">Trustpilot &middot; kiandeehanfitness.com</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"From the first consultation call, I could tell that Kian was a great guy who is genuinely passionate about helping others. After a thorough talk about where I was at, it was a no-brainer. This would be a breakthrough for me."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">J</div>
+            <div>
+              <div class="reviewer-name">James</div>
+              <div class="reviewer-source">Trustpilot &middot; kiandeehanfitness.com</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Working with Josh has provided helpful insight into what I'm doing, how to improve it, and feedback on how to go forward. They prioritise knowing I'm a busy working professional and understand the importance of consistency over perfection."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">M</div>
+            <div>
+              <div class="reviewer-name">Michael</div>
+              <div class="reviewer-source">Trustpilot &middot; kiandeehanfitness.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INCLUDES -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">What's Included</div>
+      <h2>Everything in one place.</h2>
+      <p class="section-sub">No upsells. No extra modules to buy. The full UPONE system from day one.</p>
+      <div class="includes-grid">
+        <div class="include-item">
+          <div class="check-icon">
+            <svg width="14" height="14" fill="none" stroke="#22c55e" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div class="include-title">Tailored Training Plan</div>
+            <div class="include-desc">Built for your body and your schedule. Updated as you progress.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="check-icon">
+            <svg width="14" height="14" fill="none" stroke="#22c55e" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div class="include-title">Tailored Meal Plan</div>
+            <div class="include-desc">Not generic macros. A nutrition plan that fits how you actually eat.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="check-icon">
+            <svg width="14" height="14" fill="none" stroke="#22c55e" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div class="include-title">Weekly + Mid-Week Check-Ins</div>
+            <div class="include-desc">Real accountability, not automated check-in emails. Your coach reviews your progress.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="check-icon">
+            <svg width="14" height="14" fill="none" stroke="#22c55e" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div class="include-title">Form Reviews</div>
+            <div class="include-desc">Send a video. Get feedback. Train correctly from day one.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="check-icon">
+            <svg width="14" height="14" fill="none" stroke="#22c55e" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div class="include-title">Daily Habit Tracker</div>
+            <div class="include-desc">Track the habits that drive results. Built into the UPONE app.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="check-icon">
+            <svg width="14" height="14" fill="none" stroke="#22c55e" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div class="include-title">MMS2 Education Series</div>
+            <div class="include-desc">Learn the principles behind your plan so you own your results long term.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="apply">
+    <div class="cta-box">
+      <div class="section-label">Ready to Start</div>
+      <h2>Apply for UPONE Coaching</h2>
+      <p>
+        Spots are limited. Fill out the application and Kian will reach out to book your free consultation call.
+      </p>
+      <a href="#" class="btn-primary" style="font-size:17px; padding:18px 44px;">Apply Now. It's Free to Talk.</a>
+      <p class="cta-note">Application takes 2 minutes. No obligation.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>UPONE Coaching &copy; 2026 &nbsp;&middot;&nbsp; Built by Kian Deehan &nbsp;&middot;&nbsp; Wellington, NZ</p>
+    <p style="margin-top:8px;">Results may vary. Individual outcomes depend on effort, consistency, and adherence to the programme.</p>
+  </footer>
+
+</body>
+</html>
